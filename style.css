@@ -1,0 +1,19 @@
+header {
+    text-align: center;
+}
+main{
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.botoncito {
+    padding-left: 49%;
+    padding-right: 48%;
+    display: flex;
+    text-align: center;
+    font-size: large;
+}
+.resultado {
+    text-align: center;
+}
