@@ -48,7 +48,7 @@ function crearCards() {
       main.innerHTML += `     
                               <div class="card">
                                 <div>
-                                    <p> ${Agregados.nombre} </p>
+                                    <h2> ${Agregados.nombre} </h2>
                                 </div>
                                 <span>$${Agregados.precio}</span>
                                 <button id="${Agregados.id}">Agregar</button>

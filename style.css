@@ -2,7 +2,7 @@ header {
     text-align: center;
 }
 main{
-    background-color: aquamarine;
+    background-color: aqua;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
