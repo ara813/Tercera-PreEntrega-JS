@@ -40,19 +40,24 @@ localStorage.setItem ('BD', JSON.stringify(carrito))
 
 localStorage.setItem ('Eliminados', JSON.stringify(x))
 
-
+main.innerHTML = `<div class="texto">
+<p>A continuacion encontraras todo lo que podes agrefgarle a tu fotografia:</p>
+<p>El precio inicial de la lamina es de $1000</p>
+<p>Los productos que selecciones apareceran debajo del bonton "TOTAL"</p>
+</div>`
 main.style.display = "flex";
+modalContainer.innerHTML =`<p class="color">Productos seleccionados:</p>`
 mostrarCarrito();
 function crearCards() {
     arrayAgregados.forEach((Agregados) => {
-      main.innerHTML += `     
+      main.innerHTML += `     <button id="${Agregados.id}" class="botones">
                               <div class="card">
-                                <div>
+                               <div>
                                     <h2> ${Agregados.nombre} </h2>
                                 </div>
                                 <span>$${Agregados.precio}</span>
-                                <button id="${Agregados.id}">Agregar</button>
-                            </div>`;                       
+                               
+                            </div> </button>`;                       
     });
     darFuncionalidadBtns();
   }
@@ -88,10 +93,12 @@ function crearCards() {
     carrito.forEach((Agregados) => {
     let carritoContent = document.createElement("div");
     carritoContent.innerHTML = `
+      <div class="card">
         <h3>${Agregados.nombre}</h3>
         <p> $ ${Agregados.precio}</p>
         <p> Cantidad: ${Agregados.cantidad}</p>
         <span class="delete-product"> ❌ </span>
+        </div>
       `;
 
     modalContainer.append(carritoContent);
@@ -122,6 +129,7 @@ btn.addEventListener ("click", (e)=>{
     const total = carrito.reduce ((acc, el)=> acc + el.precio*el.cantidad, 1000)
 
 resultado.innerHTML = `<p>El total a pagar es de $${total}</p>
+                       <p>Si desea eliminar uno de los seleccionados solo haga click en la ❌ y luego vuelva tocar el boton de "TOTAL" para conocer el monto final a abonar</p>
                       <p>Gracias por tu compra que la disfutes :)</p>`;
 })
 }

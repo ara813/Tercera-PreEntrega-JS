@@ -1,19 +1,61 @@
+body {
+    background-color: black;
+}
 header {
     text-align: center;
+    color: aliceblue;
 }
 main{
-    background-color: aqua;
+    background-color: transparent;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
+.texto{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 1%;
+}
+.card {
+    border-radius: 10%;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+    margin: 2%;
+}
+.card:hover{
+    box-shadow:1px 3px 2px 2px aliceblue;
+}
+.botones{
+    margin-top:4%;
+    background-color: transparent;
+    color: aliceblue;
+    height: fit-content;
+    width: 120px;
+    border-radius: 10%;
+    border-color: transparent;
+}
 .botoncito {
-    padding-left: 49%;
-    padding-right: 48%;
+    margin-left: 49%;
+    margin-right: 48%;
+    margin-top: 3%;
     display: flex;
     text-align: center;
-    font-size: large;
+    font-size: x-large;
+    background-color: transparent;
+    color: aliceblue;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10%;
+    border-color: transparent;
+}
+.botoncito:hover{
+    box-shadow:1px 3px 2px 2px aliceblue;
 }
 .resultado {
     text-align: center;
+    color: aliceblue;
 }
