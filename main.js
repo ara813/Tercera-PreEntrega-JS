@@ -43,7 +43,7 @@ localStorage.setItem ('Eliminados', JSON.stringify(x))
 main.innerHTML = `<div class="texto">
 <p>A continuacion encontraras todo lo que podes agregarle a tu fotografia:</p>
 <p>El precio inicial de la lamina es de $1000</p>
-<p>Los productos que selecciones apareceran debajo del bonton "TOTAL"</p>
+<p>Los productos que selecciones apareceran debajo del bonton TOTAL</p>
 </div>`
 main.style.display = "flex";
 modalContainer.innerHTML =`<p class="color">Productos seleccionados:</p>`
