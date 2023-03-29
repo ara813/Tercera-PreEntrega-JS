@@ -4,6 +4,7 @@ body {
 header {
     text-align: center;
     color: aliceblue;
+    text-decoration: dashed;
 }
 main{
     background-color: transparent;
