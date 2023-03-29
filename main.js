@@ -66,15 +66,12 @@ function crearCards() {
         e.preventDefault();
         agregarAlCarrito(Agregados);
         if (Agregados.id === 3){
-          alert ("Agregaste una cancion")
           song();
          } 
         else if (Agregados.id === 4){
-          alert ("Agregaste un texto")
           textoExtra();
         } 
         else if (Agregados.id === 5){
-          alert ("Elegiste el envio a domicilio")
           direction();
         }
       });
