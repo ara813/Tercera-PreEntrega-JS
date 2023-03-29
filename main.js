@@ -41,7 +41,7 @@ localStorage.setItem ('BD', JSON.stringify(carrito))
 localStorage.setItem ('Eliminados', JSON.stringify(x))
 
 main.innerHTML = `<div class="texto">
-<p>A continuacion encontraras todo lo que podes agrefgarle a tu fotografia:</p>
+<p>A continuacion encontraras todo lo que podes agregarle a tu fotografia:</p>
 <p>El precio inicial de la lamina es de $1000</p>
 <p>Los productos que selecciones apareceran debajo del bonton "TOTAL"</p>
 </div>`
@@ -56,7 +56,6 @@ function crearCards() {
                                     <h2> ${Agregados.nombre} </h2>
                                 </div>
                                 <span>$${Agregados.precio}</span>
-                               
                             </div> </button>`;                       
     });
     darFuncionalidadBtns();
@@ -66,10 +65,81 @@ function crearCards() {
         document.getElementById(`${Agregados.id}`).addEventListener('click', (e) => {
         e.preventDefault();
         agregarAlCarrito(Agregados);
+        if (Agregados.id === 3){
+          alert ("Agregaste una cancion")
+          song();
+         } 
+        else if (Agregados.id === 4){
+          alert ("Agregaste un texto")
+          textoExtra();
+        } 
+        else if (Agregados.id === 5){
+          alert ("Elegiste el envio a domicilio")
+          direction();
+        }
       });
     });
   }
-  
+  function song() {
+    Swal.fire({
+      title: 'Ingresá la cancion que deseas incrustar en la fotografia como aparece en Spotify seguido del nombre del interprete:',
+      input: 'text',
+      inputAttributes: {
+        autocapitalize: 'off'
+      },
+      showCancelButton: false,
+      confirmButtonText: 'Enviar',
+      showLoaderOnConfirm: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log(result);
+        localStorage.setItem("cancionIncrustada", result.value);
+        Swal.fire({
+          title: `Has agregado la cancion ${result.value}`,
+        })
+      }
+    })
+  }
+  function textoExtra() {
+    Swal.fire({
+      title: 'Ingresá el texto que desea agregar en la fotografia y la zona donde le gustaria que se encuentre escrita:',
+      input: 'text',
+      inputAttributes: {
+        autocapitalize: 'off'
+      },
+      showCancelButton: false,
+      confirmButtonText: 'Enviar',
+      showLoaderOnConfirm: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log(result);
+        localStorage.setItem("textoExtra", result.value);
+        Swal.fire({
+          title: `Has agregado el siguiente texto adicional: ${result.value}`,
+        })
+      }
+    })
+  }
+  function direction() {
+    Swal.fire({
+      title: 'Ingresá la direccion a la que quieres que llegue la fotografia y el codigo postal:',
+      input: 'text',
+      inputAttributes: {
+        autocapitalize: 'off'
+      },
+      showCancelButton: false,
+      confirmButtonText: 'Enviar',
+      showLoaderOnConfirm: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log(result);
+        localStorage.setItem("envioADomicilio", result.value);
+        Swal.fire({
+          title: `Has agregado la siguiente direccion: ${result.value}`,
+        })
+      }
+    })
+  }
   function agregarAlCarrito(Agregados) {
     let existe = carrito.some((element) => element.id == Agregados.id);
   
@@ -92,7 +162,7 @@ function crearCards() {
     modalContainer.style.display = "flex";
     carrito.forEach((Agregados) => {
     let carritoContent = document.createElement("div");
-    carritoContent.innerHTML = `
+    carritoContent.innerHTML += `
       <div class="card">
         <h3>${Agregados.nombre}</h3>
         <p> $ ${Agregados.precio}</p>

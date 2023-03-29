@@ -55,7 +55,17 @@ main{
 .botoncito:hover{
     box-shadow:1px 3px 2px 2px aliceblue;
 }
+.contenedorFinal {
+    display: flex;
+    flex-direction: row;
+}
+.modal-container {
+    width: 50%;
+    justify-content: space-between;
+}
 .resultado {
+    width: 50%;
+    margin: 5%;
     text-align: center;
     color: aliceblue;
 }
